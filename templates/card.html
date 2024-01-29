@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identity card</title>
+    <link rel="stylesheet" href={% static "style.css" %}>
+</head>
+<body>
+    <div class="card front">
+        <header class="card_header">
+            <div class="logo header_items">
+                <img src="/media/images/fupre-logo.jpg" alt="logo" class="sch_logo">
+            </div>
+            <div class="header_items">
+                <h3 class="text">FEDERAL UNIVERSITY OF PETROLEUM RESOURCES <br>EFFURUN, NIGERIA</h3>
+            </div>
+
+        </header>
+        <div class="intro_area">
+            <h3 class="intro_text">STUDENT IDENTITY CARD</h3>
+        </div>
+        <div class="info_area">
+            <div class="info_img">
+                <img src="{{data.image.url}}" alt="student_img" class="student_img">
+                <div class="session">
+                    <h5>Session: <span>{{data.session}}</span></h5>
+                </div>
+            </div>
+            <div class="detail_area">
+                <label for="name" class="details_text">
+                    Name: <span>{{data.name}}</span>
+                </label>
+                <label for="name" class="details_text">
+                    College: <span>{{data.faculty}}</span>
+                </label>
+                <label for="name" class="details_text">
+                    Department: <span>{{data.department}}</span>
+                </label>
+                <label for="name" class="details_text">
+                    Level: <span>{{data.level}}</span>
+                </label>
+                <label for="name" class="details_text">
+                    Matric No: <span id="red_text">{{data.mat_no}}</span> Signature:                 
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="card back">
+        <p class="p1">This ID card is the property of Federal University Of Petroleum Resources, Effurun, Nigeria</p>
+        <p class="p2">This card is valid till 2018/2019 academic Session and is to be returned on leaving the university.<br>If found, Please return to: </p>
+        <div class="last">
+            <p class="p3">The Registrar,<br>Federal University of Petroleum Resources,<br>P.M.B 1221, Effurun, Delta State, Nigeria.</p>
+            <div class="qr_code"><img src="{{data.qrcode.url}}" alt="qrcode" srcset="" class="qrcode"></div>
+        </div>
+    </div>
+</body>
+</html>
