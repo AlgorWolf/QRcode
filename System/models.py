@@ -18,8 +18,12 @@ class Info(models.Model):
     gender= models.CharField(max_length=200,blank=False,null=False,choices=GENDER)
     image =   models.ImageField(upload_to="images/")
     qrcode = models.ImageField(upload_to='qrcodes/', blank=True, null=True)
+    preview = models.URLField(blank=True,null=True,default="")
     date_created= models.DateTimeField(auto_now_add=True)
     class Meta:
         ordering=("-date_created",)
     def __str__(self) -> str:
         return f"user : {self.name}"
+    def save(self,*args,**kwargs):
+        self.preview = f"https://bscqrcode.onrender.com/{self.id}"
+        super(Info,self).save(*args,**kwargs)
