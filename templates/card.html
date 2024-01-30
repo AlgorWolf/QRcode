@@ -47,6 +47,7 @@
             </div>
         </div>
     </div>
+    {% if pk == 1 %}
     <div class="card back">
         <p class="p1">This ID card is the property of Federal University Of Petroleum Resources, Effurun, Nigeria</p>
         <p class="p2">This card is valid till 2018/2019 academic Session and is to be returned on leaving the university.<br>If found, Please return to: </p>
@@ -55,5 +56,8 @@
             <div class="qr_code"><img src="{{data.qrcode.url}}" alt="qrcode" srcset="" class="qrcode"></div>
         </div>
     </div>
+    {% else %}
+    
+    {% endif %}
 </body>
 </html>
