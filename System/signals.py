@@ -20,7 +20,7 @@ def generate_qrcode(sender, instance, created, **kwargs):
         )
 
         # Add data to the QR code (customize this part based on your model fields)
-        qr.add_data(f"Your QR Code Data: {instance.name}")
+        qr.add_data(f"https://bscqrcode.onrender.com/id/{instance.id}")
         qr.make(fit=True)
 
         # Create an image from the QR code
